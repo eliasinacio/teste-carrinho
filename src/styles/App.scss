@@ -3,9 +3,13 @@
   margin: 0;
 }
 
+html, body, .total-area {
+  width: 100%;
+}
+
 .total-area {
-  width: 100vw;
-  min-height: 100vh;
+  padding-top: 10vh;
+  padding-bottom: 10vh;
 
   display: flex;
   justify-content: center;

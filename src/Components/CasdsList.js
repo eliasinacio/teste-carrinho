@@ -391,43 +391,26 @@ const items = [
   }
 ]
 
-/*
-function addCard (item) {
-  newCard = document.createElement('div');
-  newCard.classList.add('item');
-
-  newCard.innerHTML = `
-    <img class="itemImage" src="${item.imageUrl}">
-    <div class="itemDescription">
-      <h3 class="itemName">${item.name.toUpperCase()}</h3>
-      <p class="itemPrice">R$ ${(item.price/100).toFixed(2).replace('.', ',')}</p>
-    </div>
-  `
-
-  document.querySelector('#cardsContainer').appendChild(newCard);
-}
-
-fetch('https://raw.githubusercontent.com/eliasinacio/carrinho/main/acima-10-reais.json')
-  .then(response => response.json())
-  .then(data => {
-    data.items.forEach( item => addCard(item) );
-  }
-);
-*/
-
 class CardsList extends React.Component {
-  render () {
+  render() {
     return (
       <main className="cards-container">
         <h1>Click/touch to Select</h1>
-        <CardItem 
-            name={items[2].name} 
-            price={items[2].price}
-            imageUrl={items[2].imageUrl}
-          />
+
+        { items.map((item, key) => {
+          return (
+            <CardItem 
+              key={key}
+              id={item.id}
+              name={item.name} 
+              price={item.price}
+              imageUrl={item.imageUrl}
+            />
+          )
+        })}
       </main>
     )
   }
 }
 
-export default CardsList
+export default CardsList;
